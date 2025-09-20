@@ -38,10 +38,28 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      use: {
+        ...devices ['Desktop Chrome']
+      },
+      testMatch: /.*\.setup\.ts/,
+      fullyParallel: true
+    },
+    {
+      name: 'tests',
+      use: {
+        ...devices ['Desktop Chrome']
+      },
+      testDir: './tests',
+      testMatch: /.*\.spec\.ts/,
+      fullyParallel: true
+    },
+      /*
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-/*
+
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
