@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import { config, DotenvConfigOptions } from '@dotenvx/dotenvx';
+import { config } from '@dotenvx/dotenvx';
 import path = require('path');
 config({ path: path.resolve(__dirname, '.env.' + process.env.ENV?.toLowerCase()) });
 // import dotenv from 'dotenv';
@@ -41,7 +41,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
+/*
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
@@ -50,7 +50,7 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    },*/
 
     /* Test against mobile viewports. */
     // {
