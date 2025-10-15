@@ -97,3 +97,15 @@ test('Sorting price high to low', async ({page}) => {
         await expect(cleanPriceList[i]).toBeGreaterThanOrEqual(cleanPriceList[i + 1]);
     }
 });
+
+test('Verify product images are loaded', async ({page}) => {
+    const itemsPage = new items(page);
+    await page.goto(url);
+
+    expect(itemsPage.fleeceJacketImg).toBeVisible();
+    expect(itemsPage.bikeLightImg).toBeVisible();
+    expect(itemsPage.backpackImg).toBeVisible();
+    expect(itemsPage.redTshirtImg).toBeVisible();
+    expect(itemsPage.onesieImg).toBeVisible();
+    expect(itemsPage.boltTshirtImg).toBeVisible();
+});
