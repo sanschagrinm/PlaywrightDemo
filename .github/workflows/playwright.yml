@@ -20,6 +20,8 @@ jobs:
     - name: Run Playwright tests Setup
       run: ENV=demo npx playwright test --project setup
     - name: Run Playwright tests
+      env:
+        DOTENV_PRIVATE_KEY_DEMO: ${{ secrets.DOTENV_PRIVATE_KEY_DEMO }}
       run: ENV=demo npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
