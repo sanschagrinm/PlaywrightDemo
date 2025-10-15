@@ -52,7 +52,8 @@ export default defineConfig({
       },
       testDir: './tests',
       testMatch: /.*\.spec\.ts/,
-      fullyParallel: true
+      fullyParallel: true,
+      dependencies: ['setup']
     },
       /*
     {
