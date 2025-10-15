@@ -76,9 +76,24 @@ test('Sorting price low to high', async ({page}) => {
 
     await itemsPage.sortingButton.selectOption('lohi');
     const itemsPriceList = await itemsPage.inventoryItemPrice.allTextContents();
-
-
     const cleanPriceList = itemsPriceList.map(price => parseFloat(price.replace('$', '')));
     console.log (cleanPriceList);
 
+    for (let i = 0; i < cleanPriceList.length - 1; i++) {
+        await expect(cleanPriceList[i]).toBeLessThanOrEqual(cleanPriceList[i + 1]);
+    }
+});
+
+test('Sorting price high to low', async ({page}) => {
+    const itemsPage = new items(page);
+    await page.goto(url);
+
+    await itemsPage.sortingButton.selectOption('hilo');
+    const itemsPriceList = await itemsPage.inventoryItemPrice.allTextContents();
+    const cleanPriceList = itemsPriceList.map(price => parseFloat(price.replace('$', '')));
+    console.log (cleanPriceList);
+
+    for (let i = 0; i < cleanPriceList.length - 1; i++) {
+        await expect(cleanPriceList[i]).toBeGreaterThanOrEqual(cleanPriceList[i + 1]);
+    }
 });
