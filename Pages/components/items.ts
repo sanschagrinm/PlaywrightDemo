@@ -3,8 +3,8 @@ import {
     type Page,
 } from "@playwright/test";
 
-// Here we define login class
-// this class contains locator and functions to use as keyword to test the login page
+// Here we define items shopping page
+// this class contains locator and functions to use as keyword to test the items shopping page
 export class items {
     readonly page: Page;
     readonly title: Locator;
@@ -65,6 +65,7 @@ export class items {
 
     }
 
+    // Function to add a list of items to cart.
     async addItemsToCart(Locators: (Locator) []) {
         for(const item of Locators) {
             await item.click();
